@@ -1,0 +1,22 @@
+<div class="container">
+  <a routerLink="/itemPhoto/create/" class="btn btn-success">
+  Creat New Item Photo
+  </a>
+  <table class="table table-bordered">
+  <tr>
+    <th> Id</th>
+    <th> Url</th>
+
+    <th width="220px"> Action </th>
+  </tr>
+  <tr *ngFor="let itemph of itemphot">
+    <th> {{itemph.id}}</th>
+    <th>{{itemph.url}}</th>
+    <td>
+      <a href="#" [routerLink]="['/itemPhto/', itemph.id, 'view']" class="btn btn-info">View</a>
+      <a href="#" [routerLink]="['/itemPhto/', itemph.id, 'edit']" class="btn btn-primary">Edit</a>
+      <button type="button" (click)="deleteitem(itemph.id)" class="btn btn-danger">Delete</button>
+    </td>
+  </tr>
+  </table>
+</div>

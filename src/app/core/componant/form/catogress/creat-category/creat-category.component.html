@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Create New Post</h1>
+
+  <a href="#" routerLink="/Category/tabble" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="form-group">
+          <label for="name">name:</label>
+          <input
+              formControlName="name"
+              id="name"
+              type="text"
+              class="form-control">
+          <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+              <div *ngIf="f.name.errors">Title is required.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="img">img:</label>
+        <input formControlName="img"id="img"type="text" class="form-control">
+        <div *ngIf="f.img.touched && f.img.invalid" class="alert alert-danger">
+            <div *ngIf="f.img.errors">shop is required.</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="shopeId">shop:</label>
+      <select name="shopeId" id="shopeId" class="form-control" formControlName="shopeId" >
+        <option *ngFor="let item of shopList"[value]="item.id" >{{item.name}}</option>
+      </select>
+      <div *ngIf="f.shopeId.touched && f.shopeId.invalid" class="alert alert-danger">
+          <div *ngIf="f.shopeId.errors">shop is required.</div>
+      </div>
+  </div>
+
+
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

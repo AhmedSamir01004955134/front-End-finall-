@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Update Post</h1>
+
+  <a href="#" routerLink="/Category/tabble" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="id">id:</label>
+      <input formControlName="id" id="id"type="text" [(ngModel)]="cato.id" class="form-control">
+
+      <div *ngIf="f.id.touched && f.id.invalid" class="alert alert-danger">
+          <div *ngIf="f.id.errors">name is required.</div>
+      </div>
+  </div>
+
+      <div class="form-group">
+          <label for="name">name:</label>
+          <input formControlName="name" id="name" type="text" [(ngModel)]="cato.name" class="form-control">
+          <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+              <div *ngIf="f.name.errors">name is required.</div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="img">img:</label>
+        <input formControlName="img" id="img" type="text" [(ngModel)]="cato.img" class="form-control">
+        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+            <div *ngIf="f.name.errors">name is required.</div>
+        </div>
+    </div>
+
+  <div class="form-group">
+    <label for="shopeId">shop:</label>
+    <input formControlName="shopeId" id="shopeId" type='value' [(ngModel)]="cato.shopeId" class="form-control">
+    <select name="shopeId" id="shopeId" class="form-control" formControlName="shopeId" >
+      <option *ngFor="let item of shopList"[value]="item.id" >{{item.name}}</option>
+    </select>
+    <div *ngIf="f.shopeId.touched && f.shopeId.invalid" class="alert alert-danger">
+        <div *ngIf="f.shopeId.errors">shop is required.</div>
+    </div>
+</div>
+
+
+
+
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Update</button>
+  </form>
+</div>
+
+

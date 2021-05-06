@@ -1,0 +1,11 @@
+<!-- Banner Section Begin -->
+<div class="banner-section spad">
+  <div class="container-fluid">
+      <div class="row">
+          <div *ngFor="let item of serv.getgatogry() |slice:1 "Class="col-4">
+         <app-catogry-componant [catogry]="item"></app-catogry-componant>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Banner Section End -->
